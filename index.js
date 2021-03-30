@@ -1,5 +1,16 @@
 const { ApolloServer, gql } = require('apollo-server')
 
+const perfis = [
+  {
+    id: 1,
+    nome: 'Comum'
+  },
+  {
+    id: 2,
+    nome: 'Administrador'
+  }
+]
+
 const usuarios = [
   {
     id: 1,
@@ -23,6 +34,11 @@ const usuarios = [
 
 const typeDefs = gql`
   scalar Date
+
+  type Perfil {
+    id: Int
+    nome: String
+  }
 
   type Produto {
     nome: String!
@@ -49,6 +65,8 @@ const typeDefs = gql`
     numerosMegaSena: [Int!]!
     usuarios: [Usuario]
     usuario(id: Int): Usuario #definindo parametros na consulta retornando o id de um usuario
+    perfis: [Perfil]
+    perfil(id: Int): Perfil
   }
 `
 
@@ -104,6 +122,13 @@ const resolvers = {
     },
     usuario(_, { id }) {
       const selecionados = usuarios.filter(u => u.id === id)
+      return selecionados ? selecionados[0] : null
+    },
+    perfis() {
+      return perfis
+    },
+    perfil(_, { id }) {
+      const selecionados = perfis.filter(p => p.id === id)
       return selecionados ? selecionados[0] : null
     }
   }
