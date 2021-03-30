@@ -15,7 +15,7 @@ const usuarios = [
   },
   {
     id: 3,
-    nome: 'Mariana Olvieria de Albuquerque',
+    nome: 'Mariana Oliveira de Albuquerque',
     email: 'marioa@zemail.com',
     idade: 22
   }
@@ -32,7 +32,7 @@ const typeDefs = gql`
   }
 
   type Usuario {
-    id: ID!
+    id: Int
     nome: String!
     email: String!
     idade: Int
@@ -48,6 +48,7 @@ const typeDefs = gql`
     produtoEmDestaque: Produto
     numerosMegaSena: [Int!]!
     usuarios: [Usuario]
+    usuario(id: Int): Usuario #definindo parametros na consulta retornando o id de um usuario
   }
 `
 
@@ -100,6 +101,10 @@ const resolvers = {
     },
     usuarios() {
       return usuarios
+    },
+    usuario(_, { id }) {
+      const selecionados = usuarios.filter(u => u.id === id)
+      return selecionados ? selecionados[0] : null
     }
   }
 }
