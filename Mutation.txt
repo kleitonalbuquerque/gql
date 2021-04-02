@@ -1,0 +1,12 @@
+mutation {
+  novoUsuario(
+    nome: "Ana",
+    email: "ana@empresa.com",
+    idade: 34
+  ){
+    id nome email
+    perfil {
+      id nome
+    }
+  }
+}
