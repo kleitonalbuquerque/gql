@@ -1,0 +1,30 @@
+# Write your query or mutation here
+query {
+  #usuarios {
+   #id nome
+  #}
+  #ola 
+  #usuario(id:3) {
+  # nome email idade
+  #}
+  #usuarios {
+   #id
+   #nome
+   #email 
+   #perfil {
+    #id
+    #nome
+   #}
+  #} 
+  usuario(id: 3) {
+    ...usuarioCompleto
+  }
+  usuarios {
+    ...usuarioCompleto
+  }
+}
+
+fragment usuarioCompleto on Usuario {
+  id status nome email idade salario vip
+  perfil { id nome }
+}
