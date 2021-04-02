@@ -16,6 +16,7 @@ const usuarios = [
     email: "jsilva@zemail.com",
     idade: 30,
     perfil_id: 1,
+    status: "BLOQUEADO",
   },
   {
     id: 2,
@@ -23,6 +24,7 @@ const usuarios = [
     email: "lpa@zemail.com",
     idade: 38,
     perfil_id: 2,
+    status: "INATIVO",
   },
   {
     id: 3,
@@ -30,6 +32,7 @@ const usuarios = [
     email: "marioa@zemail.com",
     idade: 22,
     perfil_id: 1,
+    status: "ATIVO",
   },
 ];
 
