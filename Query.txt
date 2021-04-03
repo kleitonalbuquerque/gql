@@ -1,21 +1,35 @@
 # Write your query or mutation here
 query {
-  #usuarios {
-   #id nome
-  #}
-  #ola 
-  #usuario(id:3) {
-  # nome email idade
-  #}
-  #usuarios {
-   #id
-   #nome
-   #email 
-   #perfil {
-    #id
-    #nome
-   #}
-  #} 
+  # consultar usuario
+  usuarios {
+   id nome
+  }
+  ola 
+  usuario(id:3) {
+   nome email idade
+  }  
+  usuario(
+    filtro: {
+      id: 3
+      #email: "rafajun@wemail.com"
+    }
+  ) {
+    id status 
+    nome email
+    idade
+    perfil {
+      id nome
+    }
+  }
+  usuarios {
+   id
+   nome
+   email 
+   perfil {
+    id
+    nome
+   }
+  } 
   usuario(id: 3) {
     ...usuarioCompleto
   }

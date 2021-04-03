@@ -1,4 +1,5 @@
-mutation {
+mutation {  
+  # novo usuario
   novoUsuario(
     nome: "Ana",
     email: "ana@empresa.com",
@@ -12,5 +13,24 @@ mutation {
   # excluir usuario
   excluirUsuario(id: 5) {
     id nome
+  }
+  # excluir usuario desestruturado
+  excluirUsuario(
+    filtro: {
+      #id: 2
+      email: "jsilva@zemail.com"
+    }
+  ) {
+  	nome id
+  }
+  # alterar usuario
+  alterarUsuario(
+    id: 1
+    nome: "João Alterado"
+    email: "joaoalt@email.com"
+    idade: 30
+  ){
+    id nome 
+    email idade
   }
 }
