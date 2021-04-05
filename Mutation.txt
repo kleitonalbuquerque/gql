@@ -10,10 +10,12 @@ mutation {
       id nome
     }
   }
+
   # excluir usuario
   excluirUsuario(id: 5) {
     id nome
   }
+
   # excluir usuario desestruturado
   excluirUsuario(
     filtro: {
@@ -23,6 +25,7 @@ mutation {
   ) {
   	nome id
   }
+
   # alterar usuario
   alterarUsuario(
     id: 1
@@ -32,5 +35,72 @@ mutation {
   ){
     id nome 
     email idade
+  }
+
+  alterarUsuario(
+   filtro: {
+    id: 1
+  }
+    dados: {
+      nome: "João Alterado"
+      idade: 30
+      email: "jsilva@email.com"
+    }
+  ){
+    id nome 
+    email idade
+  }
+
+  # novo perfil
+  novoPerfil(
+    dados: {
+      nome: "Professor"
+    }
+  ) {
+    id nome
+  }
+
+  # buscar perfis
+  perfis {
+    id nome
+  }
+
+  # buscar perfil por id
+  perfil(id: 2) {
+    id nome
+  }
+
+  # alterar perfil
+  alterarPerfil(
+    filtro: {
+      id: 2
+    }
+    dados: {
+      nome: "Admin"
+    }
+  ) {
+    id nome
+  }
+
+  alterarPerfil(
+    filtro: {
+      #id: 2
+      nome: "Admin"
+    }
+    dados: {
+      nome: "Administrador"
+    }
+  ) {
+    id nome
+  }
+
+  # exluir perfil
+  excluirPerfil(
+    filtro: {
+      id: 2
+      #nome: "Administrador"
+    }
+  ) {
+    id nome
   }
 }
