@@ -1,1 +1,8 @@
 # gql
+
+## Use Knex
+
+* Global install: ```npm i -g knex```
+* Local install: ```npm i -s knex mysql```
+* npx knex init
+* [knex](http://knexjs.org/)
